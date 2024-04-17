@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Feedback Form</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .card {
+            width: 600px;
+            border-radius: 15px;
+        }
+
+        .card-header {
+            background-color: #232f3e;
+            color: #fff;
+            border-radius: 15px 15px 0 0;
+        }
+
+        .card-body {
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h4 class="text-center">Teacher Feedback Form</h4>
+        </div>
+        <div class="card-body">
+            <form method="post">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="teacher" class="form-label">Select Teacher</label>
+                    <select class="form-select" id="teacher" name="teacher">
+                        <option value="">Choose teacher</option>
+                        {% for faculty in faculties %}
+                        <option value="{{ faculty.full_name }}">{{ faculty.full_name }}</option>
+                        {% endfor %}
+                    </select>
+                    <select class="form-select" id="subject" name="subject">
+                        <option value="">Choose Subject</option>
+                        {% for sub in faculties %}
+                         <option value="{{ sub.subject }}">{{ sub.subject }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="clarity" class="form-label">Clarity in explaining concepts</label>
+                    <select class="form-select" id="clarity" name="clarity">
+                        <option value="">Select rating</option>
+                        <option value="5">Excellent</option>
+                        <option value="4">Good</option>
+                        <option value="3">Average</option>
+                        <option value="2">Poor</option>
+                        <option value="1">Very Poor</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="engagement" class="form-label">Ability to engage students in lessons</label>
+                    <select class="form-select" id="engagement" name="engagement">
+                        <option value="">Select rating</option>
+                        <option value="5">Excellent</option>
+                        <option value="4">Good</option>
+                        <option value="3">Average</option>
+                        <option value="2">Poor</option>
+                        <option value="1">Very Poor</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="approachability" class="form-label">Approachability and willingness to help
+                        students</label>
+                    <select class="form-select" id="approachability" name="approachability">
+                        <option value="">Select rating</option>
+                        <option value="5">Excellent</option>
+                        <option value="4">Good</option>
+                        <option value="3">Average</option>
+                        <option value="2">Poor</option>
+                        <option value="1">Very Poor</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="management" class="form-label">Effectiveness in managing the classroom
+                        environment</label>
+                    <select class="form-select" id="management" name="management">
+                        <option value="">Select rating</option>
+                        <option value="5">Excellent</option>
+                        <option value="4">Good</option>
+                        <option value="3">Average</option>
+                        <option value="2">Poor</option>
+                        <option value="1">Very Poor</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="fairness" class="form-label">Fairness and consistency in grading and assessments</label>
+                    <select class="form-select" id="fairness" name="fairness">
+                        <option value="">Select rating</option>
+                        <option value="5">Excellent</option>
+                        <option value="4">Good</option>
+                        <option value="3">Average</option>
+                        <option value="2">Poor</option>
+                        <option value="1">Very Poor</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="encouragement" class="form-label">Encouragement and support for student learning</label>
+                    <select class="form-select" id="encouragement" name="encouragement">
+                        <option value="">Select rating</option>
+                        <option value="5">Excellent</option>
+                        <option value="4">Good</option>
+                        <option value="3">Average</option>
+                        <option value="2">Poor</option>
+                        <option value="1">Very Poor</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="organization" class="form-label">Organization and preparation for class</label>
+                    <select class="form-select" id="organization" name="organization">
+                        <option value="">Select rating</option>
+                        <option value="5">Excellent</option>
+                        <option value="4">Good</option>
+                        <option value="3">Average</option>
+                        <option value="2">Poor</option>
+                        <option value="1">Very Poor</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="teaching" class="form-label">Use of teaching methods and materials</label>
+                    <select class="form-select" id="teaching" name="teaching">
+                        <option value="">Select rating</option>
+                        <option value="5">Excellent</option>
+                        <option value="4">Good</option>
+                        <option value="3">Average</option>
+                        <option value="2">Poor</option>
+                        <option value="1">Very Poor</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="satisfaction" class="form-label">Overall satisfaction with the teacher's
+                        performance</label>
+                    <select class="form-select" id="satisfaction" name="satisfaction">
+                        <option value="">Select rating</option>
+                        <option value="5">Excellent</option>
+                        <option value="4">Good</option>
+                        <option value="3">Average</option>
+                        <option value="2">Poor</option>
+                        <option value="1">Very Poor</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="message" class="form-label">Additional Comments (Optional)</label>
+                    <textarea class="form-control" id="message" name="message" rows="3"></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary d-block w-100">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Bootstrap Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</body>
+</html>
