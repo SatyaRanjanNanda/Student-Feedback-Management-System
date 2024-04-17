@@ -37,6 +37,7 @@ urlpatterns = [
     path('delete-faculty/<int:faculty_id>/', views.delete_faculty, name='delete_faculty'),
     path('delete-student/<int:student_id>/', views.delete_student, name='delete_student'),
     path('delete-feedback/<int:feedback_id>/', views.delete_feedback, name='delete_feedback'),
+    path('logout_user/',views.logout_user,name="logout"),
 
 ]
 

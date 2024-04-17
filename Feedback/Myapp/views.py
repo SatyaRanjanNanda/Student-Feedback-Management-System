@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, HttpResponse,HttpResponseRedirect, get_object_or_404
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login,logout
 from django.contrib.auth.decorators import login_required
 from .models import *
 
@@ -187,3 +187,7 @@ def delete_feedback(request, feedback_id):
             return HttpResponse('Feedback not found')
     else:
         return HttpResponse('Invalid request method')
+
+def logout_user(request):
+    logout(request)
+    return redirect('adminlogin')
